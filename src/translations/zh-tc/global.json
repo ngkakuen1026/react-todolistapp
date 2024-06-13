@@ -1,0 +1,13 @@
+{
+    "header": {
+        "title": "待辦事項清單",
+        "mytasks": "我的事項",
+        "addtask": "新增事項"
+    },
+    "body": {
+        "tasktext": "你沒有任何要做的事項",
+        "tasktext1": "你有",
+        "tasktext2": "項要做的事項",
+        "completed": "已完成"
+    }
+}

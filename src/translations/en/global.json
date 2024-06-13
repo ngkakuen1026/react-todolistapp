@@ -1,0 +1,13 @@
+{
+    "header": {
+        "title": "To Do List App",
+        "mytasks": "My Tasks",
+        "addtask": "Add Task"
+    },
+    "body": {
+        "tasktext": "You don't have any task",
+        "tasktext1": "You have",
+        "tasktext2": "tasks to do",
+        "completed": "Completed"
+    }
+}
