@@ -149,9 +149,9 @@ function App() {
         {toDoList.map(listItem => {
           return (
             <>
-              <div key={listItem.id} className={`header flex justify-between items-center my-2 py-8 px-4 rounded-lg ${isNightTheme? 'bg-gray-200 hover:bg-gray-300' : 'bg-gray-200 hover:bg-gray-300'} `} >
-                <ul >
-                  <li className='text-2xl flex items-center'>
+              <div className={`header flex justify-between items-center my-2 py-8 px-4 rounded-lg ${isNightTheme? 'bg-gray-200 hover:bg-gray-300' : 'bg-gray-200 hover:bg-gray-300'} `} >
+                <ul>
+                  <li className='text-2xl flex items-center' key={listItem.id}>
                     {listItem.isCompleted ?
                       <RiCheckboxLine className='w-10 h-10 cursor-pointer mr-2' onClick={() => toggleComplete(listItem.id)} />:
                       <RiCheckboxBlankLine className='w-10 h-10 cursor-pointer mr-2' onClick={() => toggleComplete(listItem.id)} />
