@@ -8,6 +8,11 @@
         "tasktext": "You don't have any task",
         "tasktext1": "You have",
         "tasktext2": "tasks to do",
-        "completed": "Completed"
+        "completed": "Completed",
+        "popup": {
+            "addtask": "Add Task",
+            "cancel": "Cancel",
+            "add": "Add"
+        }
     }
 }

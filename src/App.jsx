@@ -69,22 +69,23 @@ function App() {
     })
   }
 
-  const toggleTheme = () => {
+  function toggleTheme(){
     setIsNightTheme(!isNightTheme);
-  };
+  }
 
   const [currentLanguage, setCurrentLanguage] = useState("en");
 
   const [t, i18n] = useTranslation("global");
-  const handleLanguageChange = (lang) => {
+
+  function handleLanguageChange(lang) {
     i18n.changeLanguage(lang);
     setCurrentLanguage(lang);
-  };
+  }
 
-  const toggleLanguage = () => {
+  function toggleLanguage () {
     const newLanguage = currentLanguage === "en" ? "zh" : "en";
     handleLanguageChange(newLanguage);
-  };
+  }
 
   return (
     <div className={`p-5 min-h-screen ${isNightTheme ? 'bg-dark-mode' : 'bg-white'}`}>
@@ -105,10 +106,11 @@ function App() {
         </button>
       </div>
 
-      {popUp &&
+      {
+        popUp &&
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className={`pop-up py-2 px-6 border-2 border-gray-600 rounded-lg max-w-full m-5 w-full ${isNightTheme ? 'bg-dark-mode' : 'bg-white'}`}>
-            <h1 className={`text-center text-3xl py-5 ${isNightTheme ? 'text-white' : 'text-black'}`}>Add Task</h1>
+            <h1 className={`text-center text-3xl py-5 ${isNightTheme ? 'text-white' : 'text-black'}`}>{t("body.popup.addtask")}</h1>
             <input 
               type='text'
               value={newTaskText}
@@ -120,13 +122,13 @@ function App() {
                 className='bg-red-400 hover:bg-red-500 rounded-xl px-5 py-3 items-center'
                 onClick={() => {handlePopUp("close")}}
               >
-                Cancel
+                {t("body.popup.cancel")}
               </button>
               <button 
                 className='bg-green-400 hover:bg-green-500 rounded-xl px-5 py-3 items-center text-lg'
                 onClick={handleAddTask}
               >
-                Add
+                {t("body.popup.addtask")}
               </button>
             </div>
           </div>
@@ -143,18 +145,22 @@ function App() {
       </div>
       <hr/>
 
-      <div className="toDoList">
+      <div className="toDoList flex flex-col-reverse">
         {toDoList.map(listItem => {
           return (
             <>
-              <div key={listItem.id} className={`header flex justify-between items-center my-4 py-8 px-4 rounded-lg ${isNightTheme? 'bg-gray-200 hover:bg-gray-300' : 'bg-gray-200 hover:bg-gray-300'} `} >
+              <div key={listItem.id} className={`header flex justify-between items-center my-2 py-8 px-4 rounded-lg ${isNightTheme? 'bg-gray-200 hover:bg-gray-300' : 'bg-gray-200 hover:bg-gray-300'} `} >
                 <ul >
                   <li className='text-2xl flex items-center'>
                     {listItem.isCompleted ?
                       <RiCheckboxLine className='w-10 h-10 cursor-pointer mr-2' onClick={() => toggleComplete(listItem.id)} />:
                       <RiCheckboxBlankLine className='w-10 h-10 cursor-pointer mr-2' onClick={() => toggleComplete(listItem.id)} />
                     }
-                    {listItem.text}
+                    {
+                      listItem.isCompleted ?
+                      <span className='line-through'>{listItem.text}</span> :
+                      <span>{listItem.text}</span>
+                    }
                   </li>
                   {listItem.isCompleted &&
                     <h1 className={`text-lg italic text-left items-center`}>{t("body.completed")}</h1> 
@@ -166,7 +172,6 @@ function App() {
           )
         })}
       </div>
-
     </div>
   )
 }

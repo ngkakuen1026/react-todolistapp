@@ -8,6 +8,11 @@
         "tasktext": "你沒有任何要做的事項",
         "tasktext1": "你有",
         "tasktext2": "項要做的事項",
-        "completed": "已完成"
+        "completed": "已完成",
+        "popup": {
+            "addtask": "新增事項",
+            "cancel": "取消",
+            "add": "新增"
+        }
     }
 }
